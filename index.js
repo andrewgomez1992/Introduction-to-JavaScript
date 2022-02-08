@@ -20,7 +20,10 @@ Do the following:
    HINT: no function required
 */
 
-
+let votingAge = 18;
+if (votingAge >= 18){
+  console.log(true)
+}
 
 /*
 Task 1b - Values
@@ -32,7 +35,15 @@ Do the following:
 
    HINT: no function required
 */
-
+// Declare two variables and assign them values
+let weight = 160;
+let age = 30;
+// Use a conditional to change the value of the 1st variable based on the value assigned to the 2nd variable
+if (weight > age) {
+  weight = 20;
+// Console log the new value of the 1st variable
+  console.log(weight)
+}
 
 
 
@@ -48,6 +59,9 @@ Do the following:
    HINT: look up the Number method
 */
 
+let year = "1999";
+let newYear = Number(year)
+console.log("new year:", newYear);
 
 
 
@@ -60,9 +74,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a, b){
+  return a * b;
 }
+
+console.log(multiply(5, 4))
 
 
 
@@ -76,9 +92,11 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age * 7;
 }
+
+console.log(dogYears(5));
 
 
 
@@ -109,9 +127,31 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(years, weight){
+  let foodAmount;
+  if (years >= 1) {
+    if (weight <= 5) {
+      foodAmount = weight * .05;
+    } else if(weight <= 10){
+      foodAmount = weight * .04;
+    } else if(weight <= 15) {
+      foodAmount = weight * .03;
+    } else if(weight > 15) {
+      foodAmount = weight * .02;
+    }
+  } else if (years < 1) {
+    if (years <= .33) {
+      foodAmount = weight * .10;
+    } else if (years <= .5833) {
+      foodAmount = weight * .05;
+    } else if (years < 1){
+      foodAmount = weight *.04;
+    }
+  }
+  return foodAmount;
 }
+
+console.log("hungryDog:", hungryDog(1, 15));
 
 
 
@@ -205,8 +245,18 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+  if (score >= 90 && score <= 100){
+    return `you got an A`
+  } else if(score >= 80 && score <= 89){
+    return `you got a B`
+  } else if(score >= 70 && score <= 79){
+    return `you got a C`
+  } else if(score >= 60 && score <= 69){
+    return `you got a D`
+  } else {
+    return `you got an F`
+  }
 }
 
 
