@@ -23,6 +23,8 @@ Do the following:
 let votingAge = 18;
 if (votingAge >= 18){
   console.log(true)
+}else{
+  console.log(false)
 }
 
 /*
@@ -127,31 +129,26 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(years, weight){
+function hungryDog(weight, age){
   let foodAmount;
-  if (years >= 1) {
-    if (weight <= 5) {
-      foodAmount = weight * .05;
-    } else if(weight <= 10){
-      foodAmount = weight * .04;
-    } else if(weight <= 15) {
-      foodAmount = weight * .03;
-    } else if(weight > 15) {
-      foodAmount = weight * .02;
-    }
-  } else if (years < 1) {
-    if (years <= .33) {
-      foodAmount = weight * .10;
-    } else if (years <= .5833) {
-      foodAmount = weight * .05;
-    } else if (years < 1){
-      foodAmount = weight *.04;
-    }
+  if (age >= 1 && weight <= 5){
+    return weight * .05;
+  } else if (age >= 1 && weight > 5 && weight <= 10){
+    return weight * .04;
+  } else if (age >= 1 && weight > 10 && weight <= 15){
+    return weight * .03;
+  } else if (age >= 1 && weight > 15){
+    return weight * .02;
+  } else if (age < 1 && age >= 0.583){
+    return weight * .04;
+  } else if (age < 0.583 && age >= 0.333){
+    return weight * .05;
+  } else if (age < 0.333) {
+    return weight * 0.10;
+  }else {
+    return 'please try again'
   }
-  return foodAmount;
 }
-
-console.log("hungryDog:", hungryDog(1, 15));
 
 
 
@@ -178,30 +175,33 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-let user = 0
-let computer = 1
+// STILL WORKING ON THIS ONE
 
-function game(user, computer){
-  if (user === 'Scissors' && computer === 'Paper'){
-    return `you win!`
-  } else if (user === 'Paper' && computer === 'Rock'){
-    return `you lose!`
-  } else if (user === 'Rock' && computer === 'Scissors') {
-    return `you win!`
-  } else if (computer === 'Scissors' && user === 'Paper'){
-    return `you lose!`
-  } else if (computer === 'Paper' && user === 'Rock'){
-    return `you win!`
-  } else if (computer === 'Rock' && user === 'Scissors') {
-    return `you lose!`
-  } else {
-    return `it's a tie`
-  }
+let computer = Math.random()
+
+if (computer <= 0.34){
+  computer = 'rock';
+} else if (computer <= 0.67) {
+  computer = 'paper';
+} else if (computer >0.67) {
+  computer = 'scissors'
 }
 
-console.log(game(Math.random))
+function game(user, computer){
+    if(user === computer) {
+      return `it's a tie`;
+    } else if (user === 'rock' && computer === 'scissors') {
+      return `you win!`
+    } else if (user === 'paper' && computer === 'rock') {
+      return `you win!`
+    } else if (user === 'scissors' && computer === 'paper') {
+      return `you win!`
+    } else {
+      return `you lose!`
+    }
+}
 
-
+console.log(game('paper', computer));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -215,9 +215,11 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers){
+  return kilometers * 0.621371;
 }
+
+console.log(miles());
 
 
 
@@ -229,9 +231,10 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48;
 }
+console.log(feet());
 
 
 
@@ -245,10 +248,13 @@ Using the annoyingSong function below do the following:
     "{number you gave as an argument} bottles of soda on the wall, {number you gave as an argument} bottles of soda, take one down pass it around {number you gave as an argument minus 1} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(number){
+    for (let i = 0; i < annoyingSong.length; i++) {
+    return `${number} bottles of soda on the wall, ${number} bottles of soda, take one down pass it around ${number - 1} bottles of soda on the wall`
+  }
 }
 
+console.log(annoyingSong(99))
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
