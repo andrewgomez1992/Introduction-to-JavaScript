@@ -178,9 +178,29 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+let user = 0
+let computer = 1
+
 function game(user, computer){
-  /*add your code here*/
+  if (user === 'Scissors' && computer === 'Paper'){
+    return `you win!`
+  } else if (user === 'Paper' && computer === 'Rock'){
+    return `you lose!`
+  } else if (user === 'Rock' && computer === 'Scissors') {
+    return `you win!`
+  } else if (computer === 'Scissors' && user === 'Paper'){
+    return `you lose!`
+  } else if (computer === 'Paper' && user === 'Rock'){
+    return `you win!`
+  } else if (computer === 'Rock' && user === 'Scissors') {
+    return `you lose!`
+  } else {
+    return `it's a tie`
+  }
 }
+
+console.log(game(Math.random))
+
 
 
 
